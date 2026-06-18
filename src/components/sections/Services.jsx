@@ -37,9 +37,9 @@ export default function Services() {
   const [ref, inView] = useInView()
 
   return (
-    <section id="services" className="py-24 bg-white" ref={ref}>
+    <section id="services" className="py-16 md:py-20 bg-white" ref={ref}>
       <div className="max-w-6xl mx-auto px-5 md:px-8">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10 md:mb-12">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -5,7 +5,7 @@ export default function CTA() {
   const [ref, inView] = useInView()
 
   return (
-    <section id="book-clarity-conversation" className="py-28 text-foreground relative overflow-hidden" ref={ref} style={{ background: 'linear-gradient(oklch(0.972 0.008 85) 0%, oklch(0.91 0.018 80) 100%)' }}>
+    <section id="book-clarity-conversation" className="py-20 md:py-24 text-foreground relative overflow-hidden" ref={ref} style={{ background: 'linear-gradient(oklch(0.972 0.008 85) 0%, oklch(0.91 0.018 80) 100%)' }}>
       {/* Background decorative circles */}
 
       <div className="max-w-2xl mx-auto px-5 text-center relative z-10">
@@ -54,7 +54,6 @@ export default function CTA() {
         >
           Book a Free Clarity Conversation
         </a>
-          <p className="font-body text-xs" style={{ color: '#61675C' }}>No pressure · No obligation</p>
         </motion.div>
       </div>
     </section>

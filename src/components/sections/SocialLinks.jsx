@@ -13,7 +13,7 @@ export default function SocialLinks() {
   const [ref, inView] = useInView()
 
   return (
-    <section className="py-20 bg-cream" ref={ref}>
+    <section className="py-16 md:py-20 bg-cream" ref={ref}>
       <div className="max-w-4xl mx-auto px-5 md:px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -27,7 +27,7 @@ export default function SocialLinks() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl font-light leading-tight mb-12"
+          className="font-display text-4xl md:text-5xl font-light leading-tight mb-9 md:mb-10"
           style={{ color: '#282624' }}
         >
           Explore Guided Growth

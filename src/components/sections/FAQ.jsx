@@ -73,9 +73,9 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState(null)
 
   return (
-    <section id="faq" className="py-24 bg-white" ref={ref}>
+    <section id="faq" className="py-16 md:py-20 bg-white" ref={ref}>
       <div className="max-w-3xl mx-auto px-5 md:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-9 md:mb-10">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

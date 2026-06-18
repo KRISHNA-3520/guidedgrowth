@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="py-14 text-foreground">
+    <footer className="py-10 md:py-12 text-foreground">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 text-center">
         {/* Brand Name */}
         <p className="font-serif text-lg text-foreground" style={{ color: '#282624' }}>

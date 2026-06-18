@@ -33,7 +33,7 @@ export default function Contact() {
   const [ref, inView] = useInView()
 
   return (
-    <section id="contact" ref={ref} className="py-16 text-foreground">
+    <section id="contact" ref={ref} className="py-14 md:py-16 text-foreground">
       <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
         {/* Header */}
         <motion.div
@@ -58,7 +58,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-12 space-y-3 text-left"
+          className="mt-9 md:mt-10 space-y-3 text-left"
         >
           {contacts.map(({ icon: Icon, label, value, href }, i) => (
             <li key={i}>

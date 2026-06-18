@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-cream pt-20"
+      className="relative min-h-[calc(100vh-3rem)] flex flex-col md:flex-row items-center justify-center overflow-hidden bg-cream pt-14 md:pt-20"
     >
       {/* Subtle background texture */}
       <div className="absolute inset-0 pointer-events-none">
@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-warm-100/40 blur-3xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto w-full px-5 md:px-8 py-16 md:py-20 grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-6xl mx-auto w-full px-5 md:px-8 py-8 md:py-14 grid md:grid-cols-2 gap-10 md:gap-12 items-center relative z-10">
         {/* Left — text */}
         <div className="flex flex-col gap-6 max-w-lg">
           <motion.p

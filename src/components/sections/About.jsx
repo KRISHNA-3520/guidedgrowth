@@ -12,15 +12,15 @@ export default function About() {
   const [ref, inView] = useInView()
 
   return (
-    <section id="about" className="py-24 bg-cream" ref={ref}>
-      <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-16 items-start">
+    <section id="about" className="py-16 md:py-20 bg-cream" ref={ref}>
+      <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-10 md:gap-12 items-start">
 
         {/* Story column — LEFT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col gap-5"
+          className="flex flex-col gap-4"
         >
           <p className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium">
             Founder · Coach · Speaker
@@ -63,7 +63,7 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center md:items-start gap-5 md:pl-10"
+          className="flex flex-col items-center md:items-start gap-4 md:pl-8"
         >
           <div className="relative w-full">
             <div className="absolute -inset-3 rounded-3xl border border-warm-200/70" />

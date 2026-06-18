@@ -32,7 +32,7 @@ export default function Testimonials() {
   const [ref, inView] = useInView()
 
   return (
-    <section id="testimonials" className="py-24 bg-warm-50" ref={ref}>
+    <section id="testimonials" className="py-16 md:py-20 bg-warm-50" ref={ref}>
       <div className="max-w-6xl mx-auto px-5 md:px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -55,7 +55,7 @@ export default function Testimonials() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-body text-gray-500 text-sm mb-14"
+          className="font-body text-gray-500 text-sm mb-10 md:mb-12"
         >
           Real reflections from people who experienced Guided Growth support.
         </motion.p>

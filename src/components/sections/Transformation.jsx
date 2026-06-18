@@ -25,7 +25,7 @@ export default function Transformation() {
   const [ref, inView] = useInView()
 
   return (
-    <section id="transformation" className="py-16 text-foreground" ref={ref} style={{ background: 'linear-gradient(135deg, oklch(0.93 0.013 75) 0%, oklch(0.96 0.008 85) 100%)' }}>
+    <section id="transformation" className="py-14 md:py-16 text-foreground" ref={ref} style={{ background: 'linear-gradient(135deg, oklch(0.93 0.013 75) 0%, oklch(0.96 0.008 85) 100%)' }}>
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         {/* Header */}
         <motion.div
@@ -52,7 +52,7 @@ export default function Transformation() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-14 grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-stretch"
+          className="mt-10 md:mt-12 grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-stretch"
         >
           {/* Before Column */}
           <div

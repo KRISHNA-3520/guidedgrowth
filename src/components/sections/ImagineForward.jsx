@@ -12,8 +12,8 @@ export default function ImagineForward() {
   const [ref, inView] = useInView()
 
   return (
-    <section id="clarity" className="py-24 bg-white" ref={ref}>
-      <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-16 items-center">
+    <section id="clarity" className="py-16 md:py-20 bg-white" ref={ref}>
+      <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
         {/* Image */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -25,7 +25,7 @@ export default function ImagineForward() {
           <img
             src="https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/db270157-2c83-4219-8e6a-dd79e1a2a410/imagine-forward.png"
             alt="Journal and coffee representing calm clarity, self-awareness, and intentional living"
-            className="relative w-full h-[500px] object-cover rounded-2xl shadow-lg"
+            className="relative w-full h-[420px] md:h-[460px] object-cover rounded-2xl shadow-lg"
             loading="lazy"
             decoding="async"
             width="768"
@@ -38,7 +38,7 @@ export default function ImagineForward() {
           initial={{ opacity: 0, x: 30 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="order-1 md:order-2 flex flex-col gap-6"
+          className="order-1 md:order-2 flex flex-col gap-5"
         >
           <p className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium">
             Growth Through Clarity
