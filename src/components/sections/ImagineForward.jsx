@@ -12,7 +12,7 @@ export default function ImagineForward() {
   const [ref, inView] = useInView()
 
   return (
-    <section className="py-24 bg-white" ref={ref}>
+    <section id="clarity" className="py-24 bg-white" ref={ref}>
       <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-16 items-center">
         {/* Image */}
         <motion.div
@@ -24,9 +24,12 @@ export default function ImagineForward() {
           <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-sage-100/70 blur-2xl" />
           <img
             src="https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/db270157-2c83-4219-8e6a-dd79e1a2a410/imagine-forward.png"
-            alt="A quiet morning scene with a journal, coffee, and olive branch"
+            alt="Journal and coffee representing calm clarity, self-awareness, and intentional living"
             className="relative w-full h-[500px] object-cover rounded-2xl shadow-lg"
             loading="lazy"
+            decoding="async"
+            width="768"
+            height="960"
           />
         </motion.div>
 

@@ -88,9 +88,13 @@ export default function Hero() {
             <div className="absolute -inset-4 rounded-3xl border border-sage-200/60" />
             <img
               src="https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/792c465d-75ae-41c4-8873-964a18066c53/binita-desk.png"
-              alt="Binita Darekar — Growth Coach for Professionals"
+              alt="Binita Darekar, clarity coach and personal growth coach for professionals in India"
               className="relative w-full rounded-2xl object-cover shadow-xl"
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              width="768"
+              height="960"
             />
             {/* Floating badge */}
             <motion.div

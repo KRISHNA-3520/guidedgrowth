@@ -25,7 +25,7 @@ export default function Transformation() {
   const [ref, inView] = useInView()
 
   return (
-    <section className="py-16 text-foreground" ref={ref} style={{ background: 'linear-gradient(135deg, oklch(0.93 0.013 75) 0%, oklch(0.96 0.008 85) 100%)' }}>
+    <section id="transformation" className="py-16 text-foreground" ref={ref} style={{ background: 'linear-gradient(135deg, oklch(0.93 0.013 75) 0%, oklch(0.96 0.008 85) 100%)' }}>
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         {/* Header */}
         <motion.div

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://guidedgrowthwithbinita.com/sitemap.xml
+Sitemap: https://www.guidedgrowthwithbinita.in/sitemap.xml

@@ -69,9 +69,12 @@ export default function About() {
             <div className="absolute -inset-3 rounded-3xl border border-warm-200/70" />
             <img
               src="https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/0047cb8b-00a0-433e-833e-70b1c36e983c/binita-headshot.png"
-              alt="Binita Darekar — Founder, Coach, Speaker"
+              alt="Binita Darekar, founder of Guided Growth with Binita and certified life coach"
               className="relative w-full rounded-2xl object-cover object-top shadow-lg"
               loading="lazy"
+              decoding="async"
+              width="768"
+              height="960"
             />
           </div>
           <div className="text-center md:text-left">

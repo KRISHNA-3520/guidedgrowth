@@ -14,7 +14,7 @@ export default function WhoIHelp() {
   const [ref, inView] = useInView()
 
   return (
-    <section className="py-24 bg-sage-50" ref={ref}>
+    <section id="who-i-help" className="py-24 bg-sage-50" ref={ref}>
       <div className="max-w-5xl mx-auto px-5 md:px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: 16 }}

@@ -20,9 +20,7 @@ export default function Header() {
 
     window.addEventListener('scroll', onScroll)
 
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const handleNavClick = (href) => {
@@ -48,7 +46,7 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <a
           href="#home"
@@ -56,7 +54,7 @@ export default function Header() {
             e.preventDefault()
             handleNavClick('#home')
           }}
-          className="font-display text-lg md:text-xl text-sage-800 font-medium tracking-wide"
+          className="font-display text-base md:text-xl text-sage-800 font-medium tracking-wide"
         >
           Guided Growth with Binita
         </a>
@@ -89,17 +87,35 @@ export default function Header() {
           Book a Free Clarity Conversation
         </a>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Actions */}
+        <div className="flex md:hidden items-center gap-2">
+          <a
+            href="https://topmate.io/binita_rathod/1865836"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-xs font-medium px-3 py-2 rounded-full whitespace-nowrap"
+            style={{ backgroundColor: '#61675C' }}
+          >
+            Book Now
+          </a>
+
+          <button
+            className="p-2 text-sage-700"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        {/* Desktop Hamburger Hidden */}
         <button
-          className="lg:hidden p-2 text-sage-700"
-          onClick={() => setOpen(!open)}
+          className="hidden md:hidden"
           aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        />
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -123,17 +139,6 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-
-              {/* Mobile CTA */}
-              <a
-                href="https://topmate.io/binita_rathod/1865836"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center text-white text-sm font-body font-medium px-5 py-3 rounded-full transition-colors duration-200 mt-2"
-                style={{ backgroundColor: '#61675C' }}
-              >
-                Book a Free Clarity Conversation
-              </a>
             </div>
           </motion.div>
         )}
