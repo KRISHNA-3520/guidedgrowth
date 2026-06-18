@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="flex flex-col gap-6 max-w-lg">
           <motion.p
             {...fadeUp(0.1)}
-            className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium"
+            className="hidden md:block font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium"
           >
             Guided Growth with Binita
           </motion.p>
