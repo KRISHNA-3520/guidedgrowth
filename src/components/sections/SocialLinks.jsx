@@ -1,56 +1,31 @@
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView.js'
-import { FaSpotify, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
+import { ArrowUpRight, Instagram, Linkedin, Mic, Youtube } from 'lucide-react'
 
 const links = [
-  { icon: FaSpotify, label: 'Podcast', sublabel: 'Conversations on clarity', href: 'https://open.spotify.com/show/0iTZK3oLH6eMcCy6qyPx5N', color: 'text-green-500' },
-  { icon: FaInstagram, label: 'Instagram', sublabel: '@guidedgrowthwithbinita', href: 'https://instagram.com/guidedgrowthwithbinita', color: 'text-pink-500' },
-  { icon: FaLinkedinIn, label: 'LinkedIn', sublabel: 'Binita Darekar', href: 'https://www.linkedin.com/in/binitarathod/', color: 'text-blue-600' },
-  { icon: FaYoutube, label: 'YouTube', sublabel: 'Reflections & talks', href: 'https://youtube.com/@guidedgrowthwithbinita', color: 'text-red-500' },
+  { icon: Mic, label: 'Podcast', sub: 'Conversations on clarity', href: 'https://open.spotify.com/show/0iTZK3oLH6eMcCy6qyPx5N' },
+  { icon: Instagram, label: 'Instagram', sub: '@guidedgrowthwithbinita', href: 'https://instagram.com/guidedgrowthwithbinita' },
+  { icon: Linkedin, label: 'LinkedIn', sub: 'Binita Rathod', href: 'https://www.linkedin.com/in/binitarathod/' },
+  { icon: Youtube, label: 'YouTube', sub: 'Reflections & talks', href: 'https://youtube.com/@guidedgrowthwithbinita?si=luVfZ-JlDfVkYHBs' },
 ]
 
 export default function SocialLinks() {
-  const [ref, inView] = useInView()
-
   return (
-    <section className="py-16 md:py-20 bg-cream" ref={ref}>
-      <div className="max-w-4xl mx-auto px-5 md:px-8 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium mb-3"
-        >
-          Stay Close
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl font-light leading-tight mb-9 md:mb-10"
-          style={{ color: '#282624' }}
-        >
-          Explore Guided Growth
-        </motion.h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {links.map(({ icon: Icon, label, sublabel, href, color }, i) => (
-            <motion.a
-              key={i}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 16 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.07 * i }}
-              className="group flex flex-col items-center gap-3 bg-white rounded-2xl px-4 py-7 shadow-sm border border-sage-100 hover:shadow-md transition-all"
-            >
-              <Icon size={28} className={`${color} group-hover:scale-110 transition-transform`} />
-              <div>
-                <p className="font-body text-sm font-semibold text-sage-800">{label}</p>
-                <p className="font-body text-xs text-gray-400 mt-0.5">{sublabel}</p>
+    <section className="py-16 md:py-20" style={{ background: 'var(--gradient-stone)' }}>
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="text-center max-w-2xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-accent">Stay Close</p>
+          <h2 className="mt-4 font-serif text-3xl md:text-5xl text-foreground">Explore Guided Growth</h2>
+          <div className="gold-rule w-20 mx-auto mt-6" />
+        </div>
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          {links.map(({ icon: Icon, label, sub, href }) => (
+            <a key={label} href={href} target="_blank" rel="noreferrer" className="group relative rounded-2xl bg-card border border-border/60 p-7 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-accent/50">
+              <ArrowUpRight size={18} className="absolute top-5 right-5 text-muted-foreground transition-all group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <div className="h-11 w-11 rounded-full bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <Icon size={18} strokeWidth={1.5} />
               </div>
-            </motion.a>
+              <h3 className="mt-5 font-serif text-xl text-foreground">{label}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{sub}</p>
+            </a>
           ))}
         </div>
       </div>

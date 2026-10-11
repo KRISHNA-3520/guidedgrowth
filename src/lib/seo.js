@@ -1,14 +1,14 @@
 export const siteUrl = 'https://www.guidedgrowthwithbinita.in'
 
 export const brandName = 'Guided Growth with Binita'
-export const founderName = 'Binita Darekar'
+export const founderName = 'Binita Rathod'
 export const email = 'guidedgrowthwithbinita@gmail.com'
 export const phone = '+91 95297 03353'
 
 export const seo = {
-  title: 'Clarity Coach India | Guided Growth with Binita',
+  title: 'Guided Growth with Binita — Growth Coach for Capable Professionals',
   description:
-    'Guided Growth with Binita offers clarity, confidence, self-trust, personal growth, and life transition coaching for thoughtful professionals in India and online.',
+    'Private coaching for thoughtful professionals navigating uncertainty, overthinking, and self-doubt. Move toward clarity, self-trust, and aligned growth.',
   keywords: [
     'clarity coach india',
     'self trust coach india',
@@ -26,7 +26,7 @@ export const seo = {
     'leadership coach',
     'Mumbai life coach',
   ],
-  image: `${siteUrl}/og-guided-growth-binita.jpg`,
+  image: `${siteUrl}/images/binita-desk.png`,
 }
 
 export const sameAs = [

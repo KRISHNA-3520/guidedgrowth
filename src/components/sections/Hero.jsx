@@ -1,113 +1,59 @@
-import { motion } from 'framer-motion'
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] },
-})
+const bookingUrl = 'https://topmate.io/binita_rathod/1865836'
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-3rem)] flex flex-col md:flex-row items-center justify-center overflow-hidden bg-cream pt-14 md:pt-20"
+      className="relative overflow-hidden pt-28 md:pt-32"
+      style={{ background: 'var(--gradient-hero)' }}
     >
-      {/* Subtle background texture */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sage-50/60 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-warm-100/40 blur-3xl" />
-      </div>
-
-      <div className="max-w-6xl mx-auto w-full px-5 md:px-8 py-8 md:py-14 grid md:grid-cols-2 gap-10 md:gap-12 items-center relative z-10">
-        {/* Left — text */}
-        <div className="flex flex-col gap-6 max-w-lg">
-          <motion.p
-            {...fadeUp(0.1)}
-            className="hidden md:block font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium"
-          >
-            Guided Growth with Binita
-          </motion.p>
-
-          <motion.p
-            {...fadeUp(0.2)}
-            className="font-display text-lg md:text-xl text-warm-600 italic font-light"
-          >
-            You Are Not Behind. You Are Becoming.
-          </motion.p>
-
-          <motion.h1
-            {...fadeUp(0.3)}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1]"
-            style={{ color: '#282624' }}
-          >
-            Become Clearer.{' '}
-            <span className="italic text-sage-600">Trust Yourself</span>{' '}
-            More.{' '}
-            <br />
-            Move Forward With Confidence.
-          </motion.h1>
-
-          <motion.p
-            {...fadeUp(0.4)}
-            className="font-body text-base md:text-lg text-gray-600 leading-relaxed max-w-md"
-          >
-            For capable professionals navigating uncertainty, emotional overwhelm,
-            overthinking, or important life and career transitions.
-          </motion.p>
-
-          <motion.p
-            {...fadeUp(0.5)}
-            className="font-body text-sm text-gray-500 leading-relaxed max-w-sm"
-          >
-            Gain the clarity to make confident decisions, strengthen self-trust, and
-            create growth that feels aligned to who you are becoming.
-          </motion.p>
-
-          <motion.div {...fadeUp(0.6)} className="flex flex-col sm:flex-row gap-4 mt-2">
-           <a
-          href="https://topmate.io/binita_rathod/1865836"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center text-white text-sm font-body font-medium px-5 py-2.5 rounded-full transition-colors duration-200"
-          style={{ backgroundColor: '#61675C' }}
-        >
-          Book a Free Clarity Conversation
-        </a>
-          </motion.div>
-        </div>
-
-        {/* Right — hero image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="relative flex justify-center"
-        >
-          <div className="relative w-full max-w-sm md:max-w-md">
-            {/* Decorative ring */}
-            <div className="absolute -inset-4 rounded-3xl border border-sage-200/60" />
-            <img
-              src="https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/792c465d-75ae-41c4-8873-964a18066c53/binita-desk.png"
-              alt="Binita Darekar, clarity coach and personal growth coach for professionals in India"
-              className="relative w-full rounded-2xl object-cover shadow-xl"
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              width="768"
-              height="960"
-            />
-            {/* Floating badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
-              className="absolute -bottom-5 -left-4 bg-white rounded-2xl shadow-lg px-5 py-3"
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 pb-20 md:pb-28 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="animate-fade-up text-center lg:text-left">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-accent mb-6">
+            Growth Coach For Working Professionals
+          </p>
+          <p className="font-serif italic text-xl md:text-2xl text-foreground/70 mb-6">
+            You're Not Behind. You're Becoming.
+          </p>
+          <h1 className="font-serif text-[2.4rem] sm:text-5xl md:text-6xl leading-[1.08] text-foreground">
+            Become Clearer.
+            <span className="block">Trust Yourself More.</span>
+            <span className="block italic text-primary mt-1">Move Forward With Confidence.</span>
+          </h1>
+          <p className="mt-8 text-base md:text-[17px] text-foreground/75 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            I help working professionals move from overthinking and confusion towards clarity, self-trust and meaningful action.
+          </p>
+          <p className="mt-4 text-base md:text-[17px] text-foreground/75 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Gain the clarity to make confident decisions, strengthen self-trust, and create growth that feels aligned to who you are becoming.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center lg:items-start gap-5 justify-center lg:justify-start">
+            <a
+              href={bookingUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm tracking-wide font-medium text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90 transition-all hover:-translate-y-0.5"
             >
-              <p className="font-body text-xs text-sage-500 uppercase tracking-widest">Experience</p>
-              <p className="font-display text-2xl text-sage-800 font-medium">13+ Years</p>
-            </motion.div>
+              Book a Free Clarity Conversation
+            </a>
           </div>
-        </motion.div>
+          <p className="mt-8 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            13+ Years Supporting Professional Growth &amp; Human Transformation
+          </p>
+        </div>
+        <div className="animate-fade-up delay-200 relative mx-auto w-full max-w-md lg:max-w-none">
+          <div className="absolute -inset-6 rounded-[2.5rem] opacity-60 blur-3xl" style={{ background: 'var(--gradient-stone)' }} aria-hidden="true" />
+          <div className="relative">
+            <div className="absolute -inset-2 rounded-[2rem] border border-accent/40" aria-hidden="true" />
+            <img
+              src="/images/binita-desk.png"
+              alt="Binita Rathod — Growth Coach for Professionals"
+              width="1024"
+              height="1280"
+              className="relative rounded-[1.75rem] shadow-[var(--shadow-portrait)] object-cover aspect-[4/5] w-full"
+              fetchPriority="high"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )

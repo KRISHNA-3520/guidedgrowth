@@ -8,6 +8,7 @@ import WhoIHelp from '../components/sections/WhoIHelp.jsx'
 import Services from '../components/sections/Services.jsx'
 import Transformation from '../components/sections/Transformation.jsx'
 import Testimonials from '../components/sections/Testimonials.jsx'
+import Featured from '../components/sections/Featured.jsx'
 import FAQ from '../components/sections/FAQ.jsx'
 import SocialLinks from '../components/sections/SocialLinks.jsx'
 import CTA from '../components/sections/CTA.jsx'
@@ -41,21 +42,22 @@ export default function Home() {
         <meta name="twitter:image" content={seo.image} />
         <meta name="twitter:image:alt" content="Guided Growth with Binita logo for clarity and personal growth coaching" />
         <link rel="canonical" href={`${siteUrl}/`} />
-        <link rel="preload" as="image" href="https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/792c465d-75ae-41c4-8873-964a18066c53/binita-desk.png" />
+        <link rel="preload" as="image" href="/images/binita-desk.png" />
       </Helmet>
 
       <Header />
-      <main>
+      <main className="min-h-screen bg-background text-foreground">
         <Hero />
         <ImagineForward />
-        <About />
         <WhoIHelp />
         <Services />
         <Transformation />
         <Testimonials />
+        <CTA />
+        <About />
+        <Featured />
         <FAQ />
         <SocialLinks />
-        <CTA />
         <Contact />
       </main>
       <Footer />

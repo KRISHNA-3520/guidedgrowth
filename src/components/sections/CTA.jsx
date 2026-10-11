@@ -1,60 +1,25 @@
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView.js'
+const bookingUrl = 'https://topmate.io/binita_rathod/1865836'
 
 export default function CTA() {
-  const [ref, inView] = useInView()
-
   return (
-    <section id="book-clarity-conversation" className="py-20 md:py-24 text-foreground relative overflow-hidden" ref={ref} style={{ background: 'linear-gradient(oklch(0.972 0.008 85) 0%, oklch(0.91 0.018 80) 100%)' }}>
-      {/* Background decorative circles */}
-
-      <div className="max-w-2xl mx-auto px-5 text-center relative z-10">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="font-body text-xs tracking-[0.22em] uppercase font-medium mb-4"
-          style={{ color: '#61675C' }}
-        >
-          A Quiet Invitation
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl font-light leading-tight mb-5"
-          style={{ color: '#282624' }}
-        >
-          The Answers You Are Searching For{' '}
-          <span className="italic" style={{ color: '#61675C' }}>May Not Be Outside You.</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="font-body text-base leading-relaxed mb-8"
-          style={{ color: '#282624' }}
-        >
-          Let's create the space to hear them clearly.
-          <br />
-          You don't need to have everything figured out. You only need the courage to begin.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex flex-col items-center gap-3"
-        >
-           <a
-          href="https://topmate.io/binita_rathod/1865836"
+    <section id="book" className="py-20 md:py-24 relative overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
+      <div className="mx-auto max-w-3xl px-6 text-center">
+        <p className="text-[11px] uppercase tracking-[0.32em] text-accent">A Quiet Invitation</p>
+        <h2 className="mt-5 font-serif text-3xl md:text-5xl text-foreground leading-[1.15]">
+          The Answers You Are Searching For
+          <span className="block italic text-primary mt-2">May Not Be Outside You.</span>
+        </h2>
+        <div className="gold-rule w-20 mx-auto mt-8" />
+        <p className="mt-10 text-lg text-foreground/80 leading-relaxed">Let's create the space to hear them clearly.</p>
+        <p className="mt-3 text-foreground/70 leading-relaxed">You don't need to have everything figured out. You only need the courage to begin.</p>
+        <a
+          href={bookingUrl}
           target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center text-sm font-body font-medium px-5 py-2.5 rounded-full transition-colors duration-200"
-          style={{ backgroundColor: '#61675C', color: 'white' }}
+          rel="noreferrer"
+          className="mt-10 inline-flex items-center justify-center rounded-full bg-primary px-10 py-4 text-sm tracking-wide font-medium text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90 transition-all hover:-translate-y-0.5"
         >
           Book a Free Clarity Conversation
         </a>
-        </motion.div>
       </div>
     </section>
   )
