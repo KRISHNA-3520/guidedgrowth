@@ -4,6 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
+        background: 'rgb(var(--background-rgb) / <alpha-value>)',
+        foreground: 'rgb(var(--foreground-rgb) / <alpha-value>)',
+        card: 'rgb(var(--card-rgb) / <alpha-value>)',
+        'card-foreground': 'rgb(var(--card-foreground-rgb) / <alpha-value>)',
+        popover: 'rgb(var(--popover-rgb) / <alpha-value>)',
+        'popover-foreground': 'rgb(var(--popover-foreground-rgb) / <alpha-value>)',
+        primary: 'rgb(var(--primary-rgb) / <alpha-value>)',
+        'primary-foreground': 'rgb(var(--primary-foreground-rgb) / <alpha-value>)',
+        secondary: 'rgb(var(--secondary-rgb) / <alpha-value>)',
+        'secondary-foreground': 'rgb(var(--secondary-foreground-rgb) / <alpha-value>)',
+        muted: 'rgb(var(--muted-rgb) / <alpha-value>)',
+        'muted-foreground': 'rgb(var(--muted-foreground-rgb) / <alpha-value>)',
+        accent: 'rgb(var(--accent-rgb) / <alpha-value>)',
+        'accent-foreground': 'rgb(var(--accent-foreground-rgb) / <alpha-value>)',
+        border: 'rgb(var(--border-rgb) / <alpha-value>)',
+        input: 'rgb(var(--input-rgb) / <alpha-value>)',
+        ring: 'rgb(var(--ring-rgb) / <alpha-value>)',
         sage: {
           50: '#f4f7f4',
           100: '#e5ede5',
@@ -32,8 +49,10 @@ export default {
         stone: '#6b7280',
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Lora"', 'Georgia', 'serif'],
+        body: ['"Lora"', 'Georgia', 'serif'],
       },
       letterSpacing: {
         widest: '0.2em',

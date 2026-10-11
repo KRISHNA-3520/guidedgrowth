@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView.js'
 import { ArrowRight } from 'lucide-react'
 
 const before = [
@@ -22,94 +20,44 @@ const after = [
 ]
 
 export default function Transformation() {
-  const [ref, inView] = useInView()
-
   return (
-    <section id="transformation" className="py-14 md:py-16 text-foreground" ref={ref} style={{ background: 'linear-gradient(135deg, oklch(0.93 0.013 75) 0%, oklch(0.96 0.008 85) 100%)' }}>
+    <section className="py-16 md:py-20" style={{ background: 'var(--gradient-stone)' }}>
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <p className="text-[11px] uppercase tracking-[0.32em] font-medium" style={{ color: '#BD9B6E' }}>
-            Transformation
-          </p>
-          <motion.h2
-            className="mt-4 font-serif text-3xl md:text-5xl leading-[1.15]"
-            style={{ color: '#282624', letterSpacing: '-0.45px' }}
-          >
+        <div className="text-center max-w-3xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-accent">Transformation</p>
+          <h2 className="mt-4 font-serif text-3xl md:text-5xl text-foreground leading-[1.15]">
             What Becomes Possible When
-            <span className="block italic" style={{ color: '#61675C' }}>You Trust Yourself More</span>
-          </motion.h2>
-          <div className="gold-rule w-20 mx-auto mt-6" style={{ height: '1px', background: 'linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #BD9B6E 50%, rgba(0, 0, 0, 0) 100%)' }}></div>
-        </motion.div>
-
-        {/* Before/After Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-10 md:mt-12 grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-stretch"
-        >
-          {/* Before Column */}
-          <div
-            className="rounded-2xl border p-8 md:p-10"
-            style={{
-              backgroundColor: 'rgba(247, 245, 244, 0.7)',
-              borderColor: 'rgba(232, 224, 212, 0.6)',
-            }}
-          >
-            <p className="text-[11px] uppercase tracking-[0.32em] font-medium" style={{ color: '#615D59' }}>
-              Before
-            </p>
+            <span className="block italic text-primary">You Trust Yourself More</span>
+          </h2>
+          <div className="gold-rule w-20 mx-auto mt-6" />
+        </div>
+        <div className="mt-14 grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-stretch">
+          <div className="rounded-2xl bg-card/70 border border-border/60 p-8 md:p-10">
+            <p className="text-[11px] uppercase tracking-[0.32em] text-muted-foreground">Before</p>
             <ul className="mt-6 space-y-4">
               {before.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm"
-                  style={{
-                    color: '#393633',
-                    textDecoration: 'line-through',
-                    textDecorationColor: '#494542',
-                  }}
-                >
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: '#9C9289' }}></span>
+                <li key={item} className="flex items-start gap-3 text-foreground/70 line-through decoration-muted-foreground/40">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/50 shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Divider */}
-          <div className="hidden md:flex items-center justify-center" style={{ color: '#BD9B6E' }}>
-            <ArrowRight size={28} />
+          <div className="hidden md:flex items-center justify-center text-accent">
+            <ArrowRight size={28} strokeWidth={1.5} />
           </div>
-
-          {/* After Column */}
-          <div
-            className="rounded-2xl border p-8 md:p-10"
-            style={{
-              background: 'linear-gradient(135deg, oklch(0.55 0.02 130) 0%, oklch(0.45 0.02 130) 100%)',
-              borderColor: 'rgba(155, 161, 147, 0.2)',
-              color: '#F5F3EB',
-            }}
-          >
-            <p className="text-[11px] uppercase tracking-[0.32em] font-medium" style={{ color: '#DFCFB4' }}>
-              After
-            </p>
+          <div className="rounded-2xl border border-primary/20 p-8 md:p-10 text-primary-foreground" style={{ background: 'var(--gradient-olive)' }}>
+            <p className="text-[11px] uppercase tracking-[0.32em] text-[color:var(--gold-soft)]">After</p>
             <ul className="mt-6 space-y-4">
               {after.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm" style={{ color: '#F5F3EB' }}>
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: '#BD9B6E' }}></span>
+                <li key={item} className="flex items-start gap-3 text-primary-foreground/95">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

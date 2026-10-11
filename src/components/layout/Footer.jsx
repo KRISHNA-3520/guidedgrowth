@@ -1,29 +1,12 @@
 export default function Footer() {
   return (
-    <footer className="py-10 md:py-12 text-foreground">
+    <footer className="py-14 border-t border-border/40" style={{ background: 'var(--gradient-stone)' }}>
       <div className="mx-auto max-w-6xl px-6 lg:px-10 text-center">
-        {/* Brand Name */}
-        <p className="font-serif text-lg text-foreground" style={{ color: '#282624' }}>
-          Guided Growth with Binita
-        </p>
-
-        {/* Tagline */}
-        <p className="mt-3 text-sm italic" style={{ color: 'rgba(40, 38, 36, 0.7)' }}>
-          You Are Not Behind. You Are Becoming.
-        </p>
-
-        {/* Gold Rule Divider */}
-        <div className="gold-rule w-16 mx-auto my-6" style={{ height: '1px', background: 'linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #BD9B6E 50%, rgba(0, 0, 0, 0) 100%)' }}></div>
-
-        {/* Tagline Label */}
-        <p className="text-[11px] uppercase tracking-[0.32em] font-medium" style={{ color: '#BD9B6E' }}>
-          Aligned Growth Action
-        </p>
-
-        {/* Copyright */}
-        <p className="mt-6 text-xs" style={{ color: '#615D59' }}>
-          © {new Date().getFullYear()} Guided Growth with Binita. All rights reserved.
-        </p>
+        <p className="font-serif text-lg text-foreground">Guided Growth with Binita</p>
+        <p className="mt-3 text-sm italic text-foreground/70">You're Not Behind. You're Becoming.</p>
+        <div className="gold-rule w-16 mx-auto my-6" />
+        <p className="text-[11px] uppercase tracking-[0.32em] text-accent">Aligned Growth Action</p>
+        <p className="mt-6 text-xs text-muted-foreground">© {new Date().getFullYear()} Guided Growth with Binita. All rights reserved.</p>
       </div>
     </footer>
   )

@@ -1,67 +1,34 @@
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView.js'
-
 const items = [
   "You're successful on the outside but internally feel stuck, uncertain, or overwhelmed.",
-  "You constantly overthink important decisions and struggle to trust yourself.",
-  "You feel pressure to have everything figured out but secretly feel lost.",
+  'You constantly overthink important decisions and struggle to trust yourself.',
+  'You feel pressure to have everything figured out but secretly feel lost.',
   "You're navigating a life transition, career change, or personal growth journey.",
-  "You want greater clarity, confidence, and direction.",
+  'You want greater clarity, confidence, and direction.',
   "You're ready to stop surviving and start living intentionally.",
 ]
 
 export default function WhoIHelp() {
-  const [ref, inView] = useInView()
-
   return (
-    <section id="who-i-help" className="py-16 md:py-20 bg-sage-50" ref={ref}>
-      <div className="max-w-5xl mx-auto px-5 md:px-8 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium mb-3"
-        >
-          Who I Help
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl font-light leading-tight mb-10 md:mb-12"
-          style={{ color: '#282624' }}
-        >
-          This Work Is For You If...
-        </motion.h2>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {items.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.05 * i }}
-              className="bg-white rounded-2xl p-6 text-left shadow-sm border border-sage-100 hover:shadow-md transition-shadow"
-            >
-              <span className="font-display text-3xl text-sage-200 font-light block mb-3">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <p className="font-body text-gray-600 leading-relaxed text-sm">{item}</p>
-            </motion.div>
+    <section className="py-16 md:py-20" style={{ background: 'var(--gradient-stone)' }}>
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="text-center max-w-2xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-accent">Who I Help</p>
+          <h2 className="mt-4 font-serif text-3xl md:text-5xl text-foreground">This Work Is For You If...</h2>
+          <div className="gold-rule w-20 mx-auto mt-6" />
+        </div>
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {items.map((item, index) => (
+            <article key={item} className="relative rounded-2xl bg-card border border-border/60 p-7 md:p-8 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-accent/50">
+              <span className="absolute top-5 right-5 font-serif text-xs text-accent tracking-widest">0{index + 1}</span>
+              <span className="block h-px w-10 bg-accent/60 mb-5" />
+              <p className="text-foreground/85 leading-relaxed text-[15px]">{item}</p>
+            </article>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 md:mt-12 flex flex-col items-center gap-2"
-        >
-          <p className="font-display text-2xl italic text-sage-700">You are not broken.</p>
-          <p className="font-body text-gray-500 text-base">
-            You may simply need space to hear yourself clearly again.
-          </p>
-        </motion.div>
+        <div className="mt-16 max-w-xl mx-auto text-center">
+          <p className="font-serif italic text-2xl md:text-3xl text-primary leading-relaxed">You are not broken.</p>
+          <p className="mt-3 text-foreground/75 leading-relaxed">You may simply need space to hear yourself clearly again.</p>
+        </div>
       </div>
     </section>
   )

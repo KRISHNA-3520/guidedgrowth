@@ -340,28 +340,19 @@ If you only want to forward the domain without full DNS control:
 | 404 on page refresh | SPA routing not configured | `vercel.json` / `netlify.toml` / nginx `try_files` |
 | www not redirecting | Missing CNAME or redirect rule | Add www CNAME pointing to platform |
 | GoDaddy "CNAME already exists" | Default parked page records | Delete default @ A record before adding yours |
-| Images not loading | CORS / path issue | Images are loaded from external URLs — check network tab |
+| Images not loading | Missing static asset | Confirm the image files are present in `public/images/` and the paths begin with `/images/` |
 
 ---
 
 ## Image Assets
 
-The following images are loaded from the original Lovable CDN:
+The current site images are stored locally in `public/images/` and referenced by `/images/...` paths:
 
-| Image | URL |
-|-------|-----|
-| Binita at desk (hero) | `https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/.../binita-desk.png` |
-| Imagine Forward | `https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/.../imagine-forward.png` |
-| Binita headshot | `https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/.../binita-headshot.png` |
-
-**For production:** Download these images and place them in `public/images/` then update `src` attributes in `Hero.jsx`, `ImagineForward.jsx`, and `About.jsx`:
-
-```jsx
-// Change from:
-src="https://guidedgrowthwithbinita.lovable.app/..."
-// To:
-src="/images/binita-desk.png"
-```
+| Image | File |
+|-------|------|
+| Binita at desk (hero) | `public/images/binita-desk.png` |
+| Imagine Forward | `public/images/imagine-forward.png` |
+| Binita headshot | `public/images/binita-headshot.png` |
 
 ---
 

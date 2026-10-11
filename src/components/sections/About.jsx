@@ -1,98 +1,79 @@
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView.js'
+import { useRef } from 'react'
+import { Check, X } from 'lucide-react'
+import MyStory from './MyStory.jsx'
 
 const credentials = [
-  '13+ Years Professional Experience',
   'Former Corporate HR Leader',
   'Certified Life Coach',
+  'Certified NLP Practitioner',
   'Speaker & Facilitator',
 ]
 
 export default function About() {
-  const [ref, inView] = useInView()
+  const storyDialogRef = useRef(null)
 
   return (
-    <section id="about" className="py-16 md:py-20 bg-cream" ref={ref}>
-      <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-10 md:gap-12 items-start">
-
-        {/* Story column — LEFT */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col gap-4"
-        >
-          <p className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium">
-            Founder · Coach · Speaker
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl text-sage-900 font-light leading-tight">
-            Meet Binita
-          </h2>
-
-          <div className="flex flex-col gap-4 text-gray-600 font-body text-base leading-relaxed">
-            <p>
-              For over 13 years, I worked closely with professionals navigating leadership, career growth,
-              workplace challenges, and the pressure of balancing ambition with personal well-being.
-            </p>
+    <section id="about" className="py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="relative mx-auto w-full max-w-md lg:max-w-none order-1 lg:order-2">
+          <div className="absolute -inset-6 rounded-[2.5rem] opacity-50 blur-3xl" style={{ background: 'var(--gradient-stone)' }} aria-hidden="true" />
+          <img
+            src="/images/binita-headshot.png"
+            alt="Binita Rathod — Founder, Coach, Speaker"
+            width="1024"
+            height="1280"
+            className="relative rounded-[1.75rem] shadow-[var(--shadow-portrait)] object-cover aspect-[4/5] w-full"
+          />
+        </div>
+        <div className="order-2 lg:order-1">
+          <h2 className="mt-4 font-serif text-4xl md:text-5xl text-foreground">Meet Binita</h2>
+          <div className="gold-rule w-20 mt-6" />
+          <div className="mt-8 space-y-5 text-foreground/80 leading-relaxed text-[16px]">
+            <p>For over 13 years, I worked closely with professionals navigating leadership, career growth, workplace challenges, and the pressure of balancing ambition with personal well-being.</p>
             <p>Again and again, I noticed a pattern.</p>
-            <p>
-              The people who appeared most capable on the outside were often carrying the deepest uncertainty
-              on the inside. They were successful, responsible, and dependable — yet many were quietly
-              questioning themselves, overthinking decisions, and wondering why growth felt harder than it should.
-            </p>
-            <p className="font-medium text-sage-800 font-display italic text-lg">
-              That realization changed the direction of my work.
-            </p>
-            <p>
-              Most capable professionals don't need more information. They need clarity — space to slow down,
-              reflect honestly, and reconnect with their own inner wisdom.
-            </p>
-            <p>
-              Guided Growth with Binita was created to help thoughtful professionals move through uncertainty
-              with greater clarity, stronger self-trust, and the confidence to take aligned action in both
-              life and career.
-            </p>
-            <p className="font-display italic text-xl text-sage-700 border-l-2 border-sage-300 pl-5 mt-2">
-              "Meaningful growth isn't about becoming someone else. It's about becoming more fully yourself."
-            </p>
+            <p>The people who appeared most capable on the outside were often carrying the deepest uncertainty on the inside. They were successful, responsible, and dependable — yet many were quietly questioning themselves, overthinking decisions, and wondering why growth felt harder than it should.</p>
+            <p className="font-serif italic text-primary text-lg">That realization changed the direction of my work.</p>
+            <p>Most capable professionals don't need more information. They need clarity — space to slow down, reflect honestly, and reconnect with their own inner wisdom.</p>
+            <p>Guided Growth with Binita was created to help thoughtful professionals move through uncertainty with greater clarity, stronger self-trust, and the confidence to take aligned action in both life and career.</p>
+            <p className="font-serif italic text-foreground/85">Because meaningful growth isn't about becoming someone else. It's about becoming more fully yourself.</p>
+            <button
+              type="button"
+              onClick={() => storyDialogRef.current?.showModal()}
+              className="inline-flex items-center rounded-full border border-accent/60 px-5 py-2.5 text-sm tracking-wide text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Why I do what I do
+            </button>
           </div>
-        </motion.div>
-
-        {/* Portrait column — RIGHT */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center md:items-start gap-4 md:pl-8"
-        >
-          <div className="relative w-full">
-            <div className="absolute -inset-3 rounded-3xl border border-warm-200/70" />
-            <img
-              src="https://guidedgrowthwithbinita.lovable.app/__l5e/assets-v1/0047cb8b-00a0-433e-833e-70b1c36e983c/binita-headshot.png"
-              alt="Binita Darekar, founder of Guided Growth with Binita and certified life coach"
-              className="relative w-full rounded-2xl object-cover object-top shadow-lg"
-              loading="lazy"
-              decoding="async"
-              width="768"
-              height="960"
-            />
-          </div>
-          <div className="text-center md:text-left">
-            <p className="font-display text-3xl text-sage-900 mt-1">Binita Darekar</p>
-          </div>
-
-          {/* Credential badges */}
-          <ul className="flex flex-col gap-2 w-full max-w-xs">
-            {credentials.map((c) => (
-              <li key={c} className="flex items-center gap-3 font-body text-sm text-gray-600">
-                <span className="w-1.5 h-1.5 rounded-full bg-sage-400 shrink-0" />
-                {c}
+          <ul className="mt-10 grid sm:grid-cols-2 gap-3">
+            {credentials.map((credential) => (
+              <li key={credential} className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/60 px-4 py-3">
+                <span className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center text-primary shrink-0">
+                  <Check size={14} strokeWidth={2.5} />
+                </span>
+                <span className="text-sm text-foreground/85">{credential}</span>
               </li>
             ))}
           </ul>
-        </motion.div>
-
+        </div>
       </div>
+      <dialog
+        ref={storyDialogRef}
+        aria-label="Why I do what I do"
+        className="m-auto max-h-[90vh] w-[min(96vw,72rem)] max-w-none overflow-y-auto rounded-2xl border border-border bg-background p-0 shadow-2xl backdrop:bg-black/60"
+        onClick={(event) => {
+          if (event.target === storyDialogRef.current) storyDialogRef.current.close()
+        }}
+      >
+        <button
+          type="button"
+          aria-label="Close My Story"
+          onClick={() => storyDialogRef.current?.close()}
+          className="sticky right-4 top-4 z-10 ml-auto mr-4 mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-sm transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X size={18} />
+        </button>
+        <MyStory isModal />
+      </dialog>
     </section>
   )
 }

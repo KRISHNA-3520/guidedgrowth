@@ -1,85 +1,58 @@
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView.js'
-import { ArrowRight } from 'lucide-react'
+import { ArrowUpRight, Compass, Crown, MessageCircle, UsersRound } from 'lucide-react'
 
 const services = [
   {
     title: 'Private Clarity Conversation',
-    desc: 'Gain perspective on what is keeping you stuck, uncover what\'s truly important, and identify your next aligned step with greater confidence.',
+    body: "Gain perspective on what is keeping you stuck, uncover what's truly important, and identify your next aligned step with greater confidence.",
     cta: 'Book a Free Clarity Conversation',
     href: 'https://topmate.io/binita_rathod/1865836',
-    accent: 'sage',
+    icon: MessageCircle,
   },
   {
     title: '1:1 Growth Coaching',
-    desc: 'A personalized coaching journey designed to strengthen self-trust, navigate uncertainty, and create meaningful progress in your personal and professional life.',
+    body: 'A personalized coaching journey designed to strengthen self-trust, navigate uncertainty, and create meaningful progress in your personal and professional life.',
     cta: 'Book a Free Clarity Conversation',
     href: 'https://topmate.io/binita_rathod/1865836',
-    accent: 'warm',
+    icon: Compass,
   },
   {
     title: 'Corporate Training & Speaking',
-    desc: 'Thought-provoking workshops, leadership conversations, and development programs that help individuals and teams build clarity, emotional awareness, resilience, and workplace effectiveness.',
+    body: 'Thought-provoking workshops, leadership conversations, and development programs that help individuals and teams build clarity, emotional awareness, resilience, and workplace effectiveness.',
     cta: 'Enquire Now',
     href: 'mailto:guidedgrowthwithbinita@gmail.com',
-    accent: 'sage',
+    icon: UsersRound,
   },
   {
     title: 'Effective Leadership Coaching',
-    desc: 'For leaders who want to lead with greater self-awareness, confidence, emotional intelligence, and impact.',
+    body: 'For leaders who want to lead with greater self-awareness, confidence, emotional intelligence, and impact.',
     cta: 'Learn More',
     href: 'https://wa.me/919529703353?text=Hi%20Binita%2C%20I%20would%20like%20to%20know%20more%20about%20your%20coaching.',
-    accent: 'warm',
+    icon: Crown,
   },
 ]
 
 export default function Services() {
-  const [ref, inView] = useInView()
-
   return (
-    <section id="services" className="py-16 md:py-20 bg-white" ref={ref}>
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
-        <div className="text-center mb-10 md:mb-12">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium mb-3"
-          >
-            Work With Binita
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-light leading-tight"
-            style={{ color: '#282624' }}
-          >
-            Choose Your Growth Path
-          </motion.h2>
+    <section id="services" className="py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="text-center max-w-2xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-accent">Work With Binita</p>
+          <h2 className="mt-4 font-serif text-3xl md:text-5xl text-foreground">Choose Your Growth Path</h2>
+          <div className="gold-rule w-20 mx-auto mt-6" />
         </div>
-
-        <div className="grid sm:grid-cols-2 gap-6">
-          {services.map((svc, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 * i }}
-              className="group bg-cream rounded-3xl p-8 flex flex-col gap-5 border border-sage-100 hover:shadow-lg transition-shadow"
-            >
-              <h3 className="font-display text-2xl text-sage-800 font-medium">{svc.title}</h3>
-              <p className="font-body text-gray-500 leading-relaxed text-sm flex-1">{svc.desc}</p>
-              <a
-                href={svc.href}
-                target={svc.href.startsWith('http') ? '_blank' : undefined}
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sage-600 hover:text-sage-800 font-body text-sm font-medium transition-colors group-hover:gap-3"
-              >
-                {svc.cta}
-                <ArrowRight size={15} />
+        <div className="mt-14 grid md:grid-cols-2 gap-6 md:gap-8">
+          {services.map(({ title, body, cta, href, icon: Icon }) => (
+            <article key={title} className="group rounded-2xl bg-card border border-border/60 p-8 md:p-10 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-accent/50 flex flex-col">
+              <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <Icon size={20} strokeWidth={1.5} />
+              </div>
+              <h3 className="mt-6 font-serif text-2xl md:text-[28px] text-foreground leading-tight">{title}</h3>
+              <p className="mt-4 text-foreground/75 leading-relaxed text-[15px] flex-1">{body}</p>
+              <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
+                {cta}
+                <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-            </motion.div>
+            </article>
           ))}
         </div>
       </div>

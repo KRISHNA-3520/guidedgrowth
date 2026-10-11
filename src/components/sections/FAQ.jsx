@@ -1,116 +1,80 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useInView } from '../hooks/useInView.js'
-import { Plus, Minus } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
-    q: 'I feel something is off, but I wouldn\'t say I\'m stuck. Is this still for me?',
-    a: 'Absolutely. You don\'t have to be in crisis to benefit from coaching. Many people come to Guided Growth when they sense there\'s more clarity, direction, or peace available to them — even when things are "okay" on the surface. That quiet feeling that something could be better is often the most meaningful signal.',
+    q: "I feel something is off, but I wouldn't say I'm stuck. Is this still for me?",
+    a: "Yes. You don't need a defined problem to begin. Many clients arrive with a quiet sense that something is misaligned — not broken, just unclear. Guided Growth gives you space to name what you're noticing and explore it honestly.",
   },
   {
     q: "I'm not sure exactly what kind of help I need. Is that okay?",
-    a: "More than okay — it's completely normal. Many people arrive without a clearly defined problem. The discovery process itself is part of the work. A free Clarity Conversation is a great first step to begin exploring what's actually present for you.",
+    a: "That's often the most honest place to start. The first conversation is designed to help you understand what's beneath the surface, so you can move forward with more clarity about what truly supports you.",
   },
   {
     q: 'How is this different from reading self-help books or content online?',
-    a: "Books and content offer information. Coaching offers a relationship — a structured, personalized space where you're truly seen, gently challenged, and supported. The difference is the same as knowing the theory of swimming versus actually being in the water with someone guiding you.",
+    a: 'Self-help content offers ideas. Coaching offers a relationship. You are not consuming information alone — you are reflecting with someone who listens carefully, asks the right questions, and helps you hear yourself more clearly.',
   },
   {
     q: 'Will you tell me what decisions to make?',
-    a: "No — and that's the point. The goal of Guided Growth is to help you strengthen your own clarity and self-trust so that you can make aligned decisions yourself. The answers you're looking for are already within you. This process helps you access them.",
+    a: 'No. My role is not to advise you on your life. It is to help you reconnect with your own judgment so the decisions you make are honest, considered, and truly yours.',
   },
   {
     q: 'What kinds of challenges do clients usually bring?',
-    a: "Overthinking, career uncertainty, navigating transitions, imposter syndrome, difficulty trusting themselves, emotional overwhelm, loss of direction, relationship and workplace dynamics, and the quiet pressure of trying to hold everything together.",
+    a: 'Career uncertainty, overthinking, decision fatigue, life transitions, leadership pressure, loss of direction, and the quiet exhaustion of always holding things together. Most clients are capable professionals carrying invisible weight.',
   },
   {
     q: 'How do I know if coaching is right for me?',
-    a: "If you're feeling stuck, uncertain, or disconnected — and you're ready to invest in yourself and take honest, reflective action — coaching is likely a good fit. The simplest next step is a free Clarity Conversation, which will give you a felt sense of whether this is right for you.",
+    a: 'The free Private Clarity Conversation exists exactly for this. There is no pressure to continue — only an honest, considered space to see whether working together feels aligned.',
   },
   {
-    q: "Do I need to commit to a long-term coaching program?",
-    a: "Not initially. You can begin with a single Clarity Conversation and take it one step at a time. That said, meaningful change often unfolds over multiple sessions, and longer engagements tend to create deeper, more lasting transformation.",
+    q: 'Do I need to commit to a long-term coaching program?',
+    a: "No. Some clients find meaningful clarity in a few focused conversations; others choose ongoing coaching for deeper work. We'll discuss what feels right for you after your clarity conversation — never before.",
   },
   {
     q: 'What makes Guided Growth different from other coaching?',
-    a: "The depth, thoughtfulness, and genuine care behind the work. This isn't a scripted program or a formula. Every engagement is tailored to the individual. The foundation is a belief that you already have the wisdom you need — this work helps you access and trust it.",
+    a: 'The work is calm, reflective, and grounded in 13+ years of professional experience supporting human growth. It is not motivational, not formulaic, and not performative. It is a thoughtful, private space designed for people who want to grow with depth and integrity.',
   },
 ]
 
-function Item({ faq, open, toggle }) {
-  return (
-    <div className="border-b border-sage-100 last:border-none">
-      <button
-        className="flex items-start justify-between w-full py-5 text-left gap-4"
-        onClick={toggle}
-        aria-expanded={open}
-      >
-        <span className="font-body text-base text-sage-900 leading-snug font-medium">{faq.q}</span>
-        <span className="shrink-0 mt-0.5 text-sage-500">
-          {open ? <Minus size={16} /> : <Plus size={16} />}
-        </span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <p className="pb-5 font-body text-gray-500 leading-relaxed text-sm">{faq.a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}
-
 export default function FAQ() {
-  const [ref, inView] = useInView()
-  const [openIdx, setOpenIdx] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
 
   return (
-    <section id="faq" className="py-16 md:py-20 bg-white" ref={ref}>
-      <div className="max-w-3xl mx-auto px-5 md:px-8">
-        <div className="text-center mb-9 md:mb-10">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="font-body text-xs tracking-[0.22em] uppercase text-sage-500 font-medium mb-3"
-          >
-            FAQ
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-light leading-tight"
-            style={{ color: '#282624' }}
-          >
-            Questions You May Be{' '}
-            <span className="italic text-sage-600">Asking Yourself</span>
-          </motion.h2>
+    <section id="faq" className="pt-8 pb-16 md:pt-10 md:pb-20 border-t border-border/40">
+      <div className="mx-auto max-w-3xl px-6 lg:px-10">
+        <div className="text-center">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-accent">FAQ</p>
+          <h2 className="mt-4 font-serif text-3xl md:text-5xl text-foreground leading-[1.15]">
+            Questions You May Be
+            <span className="block italic text-primary">Asking Yourself</span>
+          </h2>
+          <div className="gold-rule w-20 mx-auto mt-6" />
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="bg-cream rounded-3xl px-7 py-2 shadow-sm"
-        >
-          {faqs.map((faq, i) => (
-            <Item
-              key={i}
-              faq={faq}
-              open={openIdx === i}
-              toggle={() => setOpenIdx(openIdx === i ? null : i)}
-            />
-          ))}
-        </motion.div>
+        <div className="mt-12">
+          {faqs.map(({ q, a }, index) => {
+            const open = openIndex === index
+            const answerId = `faq-answer-${index}`
+            return (
+              <div key={q} className="border-b border-border/60 first:border-t">
+                <button
+                  type="button"
+                  aria-expanded={open}
+                  aria-controls={answerId}
+                  onClick={() => setOpenIndex(open ? null : index)}
+                  className="flex w-full items-center justify-between gap-5 text-left font-serif text-lg md:text-xl text-foreground hover:no-underline py-6"
+                >
+                  {q}
+                  <ChevronDown size={18} className={`shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
+                </button>
+                {open && (
+                  <div id={answerId} className="text-foreground/75 leading-relaxed text-[15px] pb-6">
+                    {a}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )
